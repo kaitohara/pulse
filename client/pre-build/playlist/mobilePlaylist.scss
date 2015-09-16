@@ -103,4 +103,41 @@
     padding-left:5px;
     padding-right:5px;
   }
+  #compensator{
+    height:60px;
+    width:100%;
+    display:block;
+  }
+  #currentSong{
+    font-weight:300;
+    padding-top:8vh;
+    .title{
+      font-family:'Montserrat';
+      font-weight:300;
+    }
+    p {
+      font-family: 'Raleway', sans-serif;
+      font-weight:200;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      margin: 0;
+      padding:5px;
+    }
+  }
+  #playingSong{
+    padding-top:20px;
+    padding-bottom:20px;
+  }
+}
+#mobile-footer{
+  padding:5px 0px 5px 0px;
+  position:fixed;
+  left:0px;
+  bottom:0;
+  width:100%;
+  height:50px;
+  background:white;
+  text-align:center;
+  font-size:2em;
 }

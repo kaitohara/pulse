@@ -75,17 +75,24 @@ nsp.on('connection', function (socket){
   socket.on('test', function(data){
     socket.broadcast.to(data.room).emit('message', 'cool game');
   })
+  //Communicate that a song has been added
   socket.on('addSong', function(data){
     socket.broadcast.to(data.room).emit('addedSong', data.song);
   })
+  //Communicate that a song has been removed
   socket.on('removeSong', function(data){
     socket.broadcast.to(data.room).emit('removedSong', data.index)
   })
+  //Potential feature for mobile to initiate play
   socket.on('play', function(data){
     socket.broadcast.to(data.room).emit('playSong', data.song)
   })
   socket.on('sortingPlaylist', function(data){
     socket.broadcast.to(data.room).emit('sortedPlaylist', data.index)
+  })
+  //Notify mobile devices what song is playing
+  socket.on('playingSong', function(data){
+    socket.broadcast.to(data.room).emit('displaySong', data.song)
   })
 });
 

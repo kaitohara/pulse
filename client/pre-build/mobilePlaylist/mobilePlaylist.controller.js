@@ -5,6 +5,7 @@ app.controller('MobilePlaylistController', function($scope, $http, playlistFacto
  	$scope.room;
  	$scope.sortable = false;
  	$scope.addedIndex = [];
+ 	$scope.showPlaylist = true;
  	console.log('resolve roomKey', roomKey)
   	console.log(window.location.origin)
 	var socket = io(window.location.origin+'/nsp');
@@ -43,7 +44,12 @@ app.controller('MobilePlaylistController', function($scope, $http, playlistFacto
 		console.log($scope.playlist)
 		$scope.$apply();
 	})
-
+	socket.on('displaySong', function(song){
+		var image = document.getElementById('playingSong');
+		image.src = song.album.images[0].url;
+		$scope.playing = song;
+		$scope.$apply();
+	})
  	$scope.test = function(){
  		console.log('testing')
  		socket.emit('test', {room:$scope.room})
@@ -91,6 +97,21 @@ app.controller('MobilePlaylistController', function($scope, $http, playlistFacto
 	$scope.itemOnTouchEnd = function(id) {
 		$scope.sortable = false;
 		console.log('Touch end');
+	};
+	$scope.toggleSearch = function(){
+		$scope.showSearch = true;
+		$scope.showPlaylist = false;
+		$scope.showCurrent = false;
+	};
+	$scope.togglePlaylist = function(){
+		$scope.showSearch = false;
+		$scope.showPlaylist = true;
+		$scope.showCurrent = false;
+	};
+	$scope.toggleCurrent = function(){
+		$scope.showSearch = false;
+		$scope.showPlaylist = false;
+		$scope.showCurrent = true;
 	};
 });
 

@@ -145,6 +145,7 @@ app.controller('PlaylistController', function($scope, $http, playlistFactory, $w
  		var image = document.getElementById('playingSong');
  		image.src = song.album.images[0].url;
  		$scope.playing = index;
+ 		socket.emit('playingSong',{song:song, room:$scope.room})
  	};
  	$scope.removeSong = function(index){
  		$scope.playlist.splice(index,1)
