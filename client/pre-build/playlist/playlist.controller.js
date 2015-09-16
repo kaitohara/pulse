@@ -92,7 +92,7 @@ app.controller('PlaylistController', function($scope, $http, playlistFactory, $w
 		if ($scope.playing === indexFrom){
 			$scope.playing = indexTo;
 		} else if (indexFrom < $scope.playing && indexTo <= $scope.playing){
-			$scope.playing -= 1;
+			$scope.playing = $scope.playing;
 		} else if (indexFrom < $scope.playing && indexTo >= $scope.playing){
 			$scope.playing -= 1;
 		} else if (indexFrom > $scope.playing && indexTo <= $scope.playing){
