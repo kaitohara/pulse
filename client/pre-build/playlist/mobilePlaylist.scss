@@ -56,6 +56,9 @@
     font-weight:200;
     text-align: left;
     list-style:none;
+    .added-gray{
+      color:gray;
+    }
     p{
       white-space:nowrap;
       overflow:hidden;
@@ -85,5 +88,19 @@
   .tracklist{
     height:70vh;
     overflow:scroll;
+  }
+  .handle{
+    float:right;
+  }
+  .column{
+    p{
+      // display:inline-block;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      margin: 0;
+    }
+    padding-left:5px;
+    padding-right:5px;
   }
 }

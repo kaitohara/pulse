@@ -3,6 +3,8 @@ app.controller('MobilePlaylistController', function($scope, $http, playlistFacto
  	$scope.results;
  	$scope.playlist = [];
  	$scope.room;
+ 	$scope.sortable = false;
+ 	$scope.addedIndex = [];
  	console.log('resolve roomKey', roomKey)
   	console.log(window.location.origin)
 	var socket = io(window.location.origin+'/nsp');
@@ -52,6 +54,7 @@ app.controller('MobilePlaylistController', function($scope, $http, playlistFacto
 		socket.emit("sortingPlaylist", {room:$scope.room, index:[indexFrom, indexTo]})
 	};
  	$scope.submit = function(){
+ 		$scope.addedIndex = [];
   		console.log('clicked!')
   		playlistFactory.searchSpotify($scope.search)
   			.then(function(results){
@@ -64,10 +67,11 @@ app.controller('MobilePlaylistController', function($scope, $http, playlistFacto
  		$scope.playlist.push(song)
  		// socket.emit('addSong', song)
  	};
- 	$scope.addToPlaylist = function(song){
+ 	$scope.addToPlaylist = function(song, index){
  		console.log(song);
  		$scope.playlist.push(song)
  		socket.emit('addSong', {room: $scope.room, song:song})
+ 		$scope.addedIndex.push(index);
  	};
  	$scope.playSong = function(song){
  		socket.emit('play', {song:song, room:$scope.room})
@@ -78,7 +82,16 @@ app.controller('MobilePlaylistController', function($scope, $http, playlistFacto
  	$scope.clearSearch = function(){
  		$scope.search = '';
  		$scope.results = null;
+ 		$scope.addedIndex = [];
  	};
+ 	$scope.itemOnLongPress = function(id) {
+		console.log('Long press');
+		$scope.sortable = true;
+	};
+	$scope.itemOnTouchEnd = function(id) {
+		$scope.sortable = false;
+		console.log('Touch end');
+	};
 });
 
 app.filter('trusted', ['$sce', function($sce) {

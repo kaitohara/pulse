@@ -54,6 +54,7 @@ app.controller('PlaylistController', function($scope, $http, playlistFactory, $w
 		var moving = $scope.playlist.splice(index[0],1)[0]
 		$scope.playlist.splice(index[1], 0, moving)
 		localStorage.setItem(1,JSON.stringify($scope.playlist))
+		$scope.onSorted(null, index[0], index[1])
 		$scope.$apply();
 	});
 
@@ -87,7 +88,7 @@ app.controller('PlaylistController', function($scope, $http, playlistFactory, $w
  		$scope.slideDown = false;
  	}
  	$scope.onSorted = function(sortedPlaylist, indexFrom, indexTo){
-		localStorage.setItem(1, JSON.stringify(sortedPlaylist))
+ 		if (sortedPlaylist) localStorage.setItem(1, JSON.stringify(sortedPlaylist));
 		if ($scope.playing === indexFrom){
 			$scope.playing = indexTo;
 		} else if (indexFrom < $scope.playing && indexTo <= $scope.playing){
@@ -97,7 +98,7 @@ app.controller('PlaylistController', function($scope, $http, playlistFactory, $w
 		} else if (indexFrom > $scope.playing && indexTo <= $scope.playing){
 			$scope.playing += 1;
 		}
-		socket.emit("sortingPlaylist", {room:$scope.room, index:[indexFrom, indexTo]})
+		if (sortedPlaylist) socket.emit("sortingPlaylist", {room:$scope.room, index:[indexFrom, indexTo]});
 	};
 
  	$scope.submit = function(){
