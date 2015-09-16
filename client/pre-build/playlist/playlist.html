@@ -1,0 +1,75 @@
+<div class="header col-lg-12">
+	<div class="col-lg-4">
+		<p class="pull-left connect-device" ng-click="openModal()">About</p>
+	</div>
+	<div class="col-lg-4">
+		<h1 class="title">- Pulse -</h1>
+	</div>
+	<div class="col-lg-4">
+		<p class="pull-right connect-device" ng-click="openModal()">Connect Device +</p>
+	</div>
+</div>
+
+<div class="col-lg-12 main-body">
+	<div class="content playlist">
+		<div>
+			<div class="center slider">
+				<form class="search" ng-submit="submit()">
+					<input id="search-box" type="text" ng-model="search" placeholder="SEARCH...">
+					<i class="fa fa-times-circle" ng-click="clearSearch()"></i>
+					<i class="fa fa-search" type="submit"></i>
+				</form>
+				<div id="live-search" ng-slide-down="slideDown" lazy-render duration=".8">
+					<ul class="search-results">
+						<li class="search-result" ng-repeat="result in results">
+							<div class="album-art" ng-mouseenter="blur($index)" ng-mouseleave="unblur($index)" ng-click="addToPlaylist(result)">
+								<img class="blur" src="{{result.album.images[0].url}}" width="200" ng-class="{hover:blurPlus === $index}">
+								<div class="plus" ng-show="blurPlus === $index">
+									<i class="fa fa-plus" style="font-size:100px;"></i>
+									<p>Add Song</p>
+								</div>
+							</div>
+							<p class="artist-name">{{result.name}}</p>
+							<p>{{result.artists[0].name}}</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<br><br>
+			<div class="col-lg-12">
+			<!-- Spotify Player -->
+			<!-- <iframe src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:5Z7ygHQo02SUrFmcgpwsKW,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameborder="0" allowtransparency="true"></iframe> -->
+				<div class="col-lg-4 player-content">
+					<img id="playingSong" src="/resources/default-artwork.png" width="250">
+					<audio id="player" controls>
+						<source src="{{playlist[0].preview_url | trusted}}" type="audio/mpeg">
+					</audio>
+				</div>
+				<div class="col-lg-8 tracklist">
+					<div class="sortable-container" sv-root sv-on-sort="onSorted(playlist, $indexFrom, $indexTo)" sv-part="playlist" >
+						<div ng-repeat="song in playlist track by $index" sv-element class="song col-lg-12">
+							<div class="col-lg-1">
+								<i class="fa fa-play" ng-click="playSong(song, $index)" ng-class="{'fa fa-play': $index !== playing , 'fa fa-volume-up':$index === playing}"></i>
+							</div>
+							<div class="col-lg-5">
+								<p>{{song.name}} </p>
+							</div>
+							<div class="col-lg-4">
+								<p>{{song.artists[0].name}}</p>
+							</div>
+							<div class="col-lg-1">
+								{{song.duration_ms | date:'m:ss'}} 
+							</div>
+							<div class="col-lg-1">
+								<i class="fa fa-times" ng-click="removeSong($index)"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="footer col-lg-12">
+<p class="sub-title"> Powered By </p> <img src="/resources/spotify.png" height="25px">
+</div>
+</div>

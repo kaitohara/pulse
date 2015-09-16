@@ -1,0 +1,89 @@
+.mobile-playlist {
+  margin: 5px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0px;
+  height:80vh;
+  color:$white;
+  .center{
+    text-align:center;
+  }
+  h1 {
+    margin:0px;
+    color: #00FFD2;
+    font-family: 'Raleway', sans-serif;
+  }
+  .well{
+    background:#141414;
+    color:$white;
+  }
+  .player-content{
+    padding-top:50px;
+    text-align:center;
+    #player{
+      margin-top:20px;
+      width:250px;
+    }
+  }
+  #search-box{
+    height:50px;
+    font-size:1.5em;
+    font-family: 'Raleway', sans-serif;
+    font-weight:200;
+    padding:10px 10px 5px 5px;
+    outline:none;
+    border-bottom: 1px solid gray;
+  }
+  .song{
+    height:30px;
+    // width:50vw;
+    text-align:left;
+    font-weight:200;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+    // margin:0 auto;
+    p{
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+  }
+  input{
+    background:transparent;
+    border:none;
+    // border-bottom: 2px solid $white;
+  }
+  .search-results{
+    font-weight:200;
+    text-align: left;
+    list-style:none;
+    p{
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      margin: 0;
+    }
+    .mobileSong{
+      padding:5px 0 5px 0;
+      margin: 0px;
+      border-bottom: 1px solid gray;
+    }
+    .album-art{
+      position: relative;
+      width:200px;
+    }
+    img {
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      transition: all .3s ease;
+    }
+    .hover {
+      -webkit-filter: blur(5px) brightness(.5);
+    }
+  }
+  .tracklist{
+    height:70vh;
+    overflow:scroll;
+  }
+}

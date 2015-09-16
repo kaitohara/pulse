@@ -1,0 +1,123 @@
+.main-body{
+  height:83vh;
+}
+.header{
+  text-align:center;
+  color:#00FFD2;
+  font-family: 'Raleway', sans-serif;
+  font-weight:200;
+  font-size:1.5em;
+  .title{
+    font-family: 'Damion', cursive; 
+  }
+  .connect-device{
+    margin:15px;
+    margin-right: 40px;
+    cursor: pointer;
+  }
+}
+.playlist {
+  margin:5px 100px 20px 100px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0px;
+  height:80vh;
+  color:$white;
+  .center{
+    text-align:center;
+  }
+  h1 {
+    margin:0px;
+    color: #00FFD2;
+    font-family: 'Raleway', sans-serif;
+  }
+  .well{
+    background:#141414;
+    color:$white;
+  }
+  .player-content{
+    padding-top:50px;
+    text-align:center;
+    #player{
+      margin-top:20px;
+      width:250px;
+    }
+  }
+  #search-box{
+    height:50px;
+    font-size:1.5em;
+    font-family: 'Raleway', sans-serif;
+    font-weight:200;
+    padding:10px 10px 5px 5px;
+    outline:none;
+    border-bottom: 1px solid gray;
+  }
+  .song{
+    height:30px;
+    width:50vw;
+    font-weight:200;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+    p{
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+  }
+  input{
+    background:transparent;
+    border:none;
+    // border-bottom: 2px solid $white;
+  }
+  .search-results{
+    font-weight:200;
+    text-align: left;
+    list-style:none;
+    .album-art{
+      position: relative;
+      width:200px;
+    }
+    .plus{
+      position: absolute;
+      top: 45px;
+      left: 62px;
+    }
+    img {
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      transition: all .3s ease;
+    }
+    .hover {
+      -webkit-filter: blur(5px) brightness(.5);
+    }
+  }
+  .search-result{
+    display:inline;
+    float: left;
+    margin: 10px;
+    width:200px;
+    p{
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .artist-name{
+      padding-top: 10px;
+    }
+  }
+  .tracklist{
+    height:65vh;
+    overflow:scroll;
+  }
+}
+.footer{
+  text-align:center;
+  height: 50px;
+  .sub-title{
+      font-family: 'Raleway', sans-serif;
+      font-weight:200;
+      color:$white;
+      display:inline;
+    }
+}

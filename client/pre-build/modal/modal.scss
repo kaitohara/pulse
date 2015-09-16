@@ -1,0 +1,29 @@
+#modal{
+	font-family: 'Raleway', sans-serif;
+	.modal-title{
+	}
+	.modal-body{
+		color: #525252;
+		font-size:1.2em;
+		background:#F6F6F6;
+		font-family: 'Montserrat', sans-serif;
+		font-weight:300;
+		.well{
+			width: 50%;
+			margin: 0 auto;
+			text-align: center;
+			padding: 0;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+	}
+	.modal-footer{
+		font-family: 'Raleway', sans-serif;
+
+		button{
+			border:1px solid #525252;
+			background: #525252;
+			color:white;
+		}
+	}
+}

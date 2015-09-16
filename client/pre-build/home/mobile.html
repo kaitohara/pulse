@@ -1,0 +1,17 @@
+<div class="mobile-home home">
+	<div class="container home-container">
+		<h1><i class="fa fa-music"></i></h1>
+		<h1>Pulse</h1>
+		<p>Enter the keywords to join.</p>
+		<p ng-show="joinFail" style="color:#FF4060">Didn't recognize the keywords</p>
+		<input type="text" ng-model="keyOne">
+		<br>
+		<input type="text" ng-model="keyTwo">
+		<br>
+		<button ng-click="joinPlaylist()">Join!</button>
+	<!-- <a ng-click="joinPlaylist()">Join!</a> -->
+		<div ui-view class="container"></div>
+	</div>
+</div>
+
+<!-- style='text-transform:uppercase' -->

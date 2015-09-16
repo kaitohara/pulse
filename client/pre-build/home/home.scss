@@ -1,0 +1,79 @@
+.home-nav{
+  font-family: 'Montserrat', sans-serif;
+  font-weight:400;
+  padding:10px;
+  #about {
+  color:#00FFD2;
+    a {
+      
+    }
+  }
+}
+#home {
+
+  blockquote {
+    font-size: 14px;
+    font-style: italic;
+  }
+  .content{
+  	display: table;
+  	height: 100vh;
+  	width:100vw;
+  }
+  .center{
+  	display: table-cell;
+  }
+  #search-box{
+  	background: transparent;
+  	color: black;
+  	border: 1px solid black;
+  	font-size:2em;
+  }
+}
+
+.home {
+  .home-container{
+    padding-top: 15vh;
+  }
+  font-family: 'Montserrat', sans-serif;
+  padding: 0px;
+  margin: 0px;
+  width:100vw;
+  height:85vh;
+  background:#000D17;
+  color:$white;
+  text-align: center;
+  h1{
+    color: #00FFD2;
+    font-family: 'Damion', cursive;
+    font-size:5em;
+  }
+  input{
+    color:$white;
+    border: 1px solid gray;
+    background: transparent;
+    border-radius:5px;
+    width: 160px;
+    font-size:1.4em;
+    height:30px;
+    padding:5px;
+    margin-bottom: 10px;
+  }
+  button{
+    color:#141414;
+    border-radius:5px;
+    background-color:#00FFD2;
+    border: 1px solid #00FFD2;
+    width: 160px;
+    height:30px;
+  }
+  a {
+    color:$white;
+  }
+}
+
+.mobile-home{
+  p{
+    font-size:1em;
+  }
+}

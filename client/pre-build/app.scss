@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-weight: 300;
+	src: url("../resources/Montserrat-Light.otf") format("opentype");
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+$white: #FDFDFD;
+
+body{
+	background:#000D17;
+}
+
+
+// Add your fractal Sass files below!
+@import 'navbar/navbar';
+@import 'home/home';
+@import 'modules/modules';
+@import 'playlist/playlist';
+@import 'playlist/mobilePlaylist';
+@import 'modal/modal';

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+    <base href="/" />
+    <title>Pulse</title>
+
+    <link rel="icon" type="image/ico" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+
+    <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="build.css" />
+    <link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,200,300' rel='stylesheet' type='text/css'>
+    <script src="socket.io-client/socket.io.js"></script>
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/chance/chance.js"></script>
+    <script src="/resources/hammer.js"></script>
+    <script src="/angular/angular.js"></script>
+    <script src="/angular-hammer/angular.hammer.min.js"></script>
+    <script src="/resources/angular-sortable-view.js"></script>
+    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="/resources/ng-slide-down.js"></script>
+    <script src="/resources/connect.js"></script>
+    <script src="build.js"></script>
+
+</head>
+<body ng-app="Meaniscule">
+    <div ui-view></div>
+</body>
+
+</html>

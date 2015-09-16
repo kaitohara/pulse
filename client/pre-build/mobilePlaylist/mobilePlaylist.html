@@ -1,0 +1,46 @@
+<!-- <div class="header">
+	<h1>- Pulse -</h1>
+</div> -->
+
+<div class="content mobile-playlist">
+	<div class="center">
+		<form class="search" ng-submit="submit()">
+			<input id="search-box" type="text" ng-model="search" placeholder="SEARCH...">
+			<i class="fa fa-times-circle" ng-click="clearSearch()"></i>
+			<!-- <i class="fa fa-search" type="submit"></i> -->
+		</form>
+		<div class="search-results">
+			<div ng-repeat="result in results">
+				<div class="mobileSong col-xs-12 col-sm-12">
+					<div class="col-xs-6 col-sm-6">
+						<p>{{result.name}}</p>
+					</div>
+					<div class="col-xs-5 col-sm-5">
+						<p>{{result.artists[0].name}}</p>
+					</div>
+					<div class="col-xs-1 col-sm-1">
+						<i class="fa fa-plus" ng-click="addToPlaylist(result)"></i>
+					</div>
+				<!-- <li>{{result.preview_url}}</li>
+				<li>{{result.artists[0].name}}</li> -->
+				<!-- <button ng-click="addToPlaylist(result)">ADD</button> -->
+				</div>
+			</div>
+		</div>
+		<!-- Spotify Player -->
+		<!-- <iframe src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:5Z7ygHQo02SUrFmcgpwsKW,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameborder="0" allowtransparency="true"></iframe> -->
+		<img id="playingSong" src="/resources/default-artwork.png" width="200">
+
+		<div class="sortable-container" sv-root sv-on-sort="onSorted(playlist, $indexFrom, $indexTo)" sv-part="playlist">
+			<div ng-repeat="song in playlist track by $index" sv-element class="song col-xs-12 col-sm-12">
+					<div class="col-xs-7 col-sm-7">
+						<p>{{song.name}}</p>
+					</div>
+					<div class="col-xs-5 col-sm-5">
+						<p>{{song.artists[0].name}}</p>
+					</div>
+				<!-- <button ng-click="playSong(song)">Play</button> -->
+			</div>
+		</div>
+	</div>
+</div>
