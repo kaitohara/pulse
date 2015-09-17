@@ -15,7 +15,6 @@ app.controller('PlaylistController', function($scope, $http, playlistFactory, $w
   	var socket = io(window.location.origin+'/nsp');
 
 	socket.on('connect', function () {
-		console.log('connected browser')
 		if (!localStorage.getItem('key')){
 			socket.emit('createRoom', {roomName: socket.id})	
 		} else {
@@ -26,15 +25,15 @@ app.controller('PlaylistController', function($scope, $http, playlistFactory, $w
 	})
 
 	socket.on('deviceConnected', function(roomName){
-		console.log('device joined')
 		$scope.room = roomName;
 		$scope.$apply();
 	})
 
-	socket.on('createdRoom', function(roomKey){
-		console.log('createdRoom')
-		localStorage.setItem('key', JSON.stringify({roomKey}))
-		$scope.key = $rootScope.key = roomKey;
+	socket.on('createdRoom', function(data){
+		var keyObj = data.roomKey;
+		localStorage.setItem('key', JSON.stringify({keyObj}))
+		$scope.key = $rootScope.key = data.roomKey;
+		$scope.room = data.room;
 		$scope.$apply();
 	})
 	socket.on('message', function(){
@@ -148,7 +147,6 @@ app.controller('PlaylistController', function($scope, $http, playlistFactory, $w
  		var image = document.getElementById('playingSong');
  		image.src = song.album.images[0].url;
  		$scope.playing = index;
- 		console.log('emitting song', $scope.room)
  		socket.emit('playingSong',{song:song, room:$scope.room})
  	};
  	$scope.removeSong = function(index){

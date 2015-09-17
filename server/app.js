@@ -42,7 +42,7 @@ nsp.on('connection', function (socket){
     }
     socket.join(roomsObj[roomKey])
     room = roomsObj[roomKey];
-    socket.emit('createdRoom', roomKey)
+    socket.emit('createdRoom', {roomKey:roomKey, room:room})
   })
 
   socket.on('joinAttempt', function(roomKey){
