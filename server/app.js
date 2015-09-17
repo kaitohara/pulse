@@ -77,6 +77,7 @@ nsp.on('connection', function (socket){
   })
   //Communicate that a song has been added
   socket.on('addSong', function(data){
+    console.log('emitting addSong')
     socket.broadcast.to(data.room).emit('addedSong', data.song);
   })
   //Communicate that a song has been removed
