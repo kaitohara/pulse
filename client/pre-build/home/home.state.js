@@ -1,6 +1,5 @@
 var templateUrl, ngController;
 if (screen.width <= 800) {
-	console.log('MOBILE!!!!')
 	templateUrl =  '/pre-build/home/mobile.html';
 	ngController = 'MobileHomeController';
 } else {

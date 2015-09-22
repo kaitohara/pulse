@@ -37,7 +37,6 @@ app.controller('PlaylistController', function($scope, $http, playlistFactory, $w
 		$scope.$apply();
 	})
 	socket.on('message', function(){
-		console.log('heard it!')
 	})
 	socket.on('addedSong', function(song){
 		$scope.socketAddToPlaylist(song);

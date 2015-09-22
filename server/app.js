@@ -6,24 +6,10 @@ var chalk = require('chalk');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var request = require('request');
+var compression = require('compression');
 
 var server = require('http').createServer(app);
-
-// server.on('request', app)
-
-// var io = require('socket.io')(server);
-
-var clientPath = path.join(__dirname, '../client');
-var buildPath = path.join(__dirname, '../client/build');    // for gulped files
-var indexHtmlPath = path.join(__dirname, './index.html');
-var nodePath = path.join(__dirname, '../node_modules');
-var imagePath = path.join(__dirname, './images');
-/* 
-Meaniscule doesn't use Bower by default. To use Bower,
-uncomment the following line and the related `app.use` line below.
-*/
-// var bowerPath = path.join(__dirname, '../bower_components');
-
+//setting up sockets
 var io = require('socket.io')(server);
 
 var nsp = io.of('/nsp')
@@ -105,22 +91,24 @@ function generateRoomKey(){
   return randomOne + '-' + randomTwo;
 }
 
+
+var clientPath = path.join(__dirname, '../client');
+var buildPath = path.join(__dirname, '../client/build');    // for gulped files
+var indexHtmlPath = path.join(__dirname, './index.html');
+var nodePath = path.join(__dirname, '../node_modules');
+var imagePath = path.join(__dirname, './images');
+
+
+app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(clientPath));
-app.use(express.static(buildPath));
-app.use(express.static(nodePath));
-app.use(express.static(imagePath));
-// app.use(express.static(bowerPath));
+app.use(express.static(clientPath,{maxAge:31536000000}));
+app.use(express.static(buildPath,{maxAge:31536000000}));
+app.use(express.static(nodePath,{maxAge:31536000000}));
+app.use(express.static(imagePath,{maxAge:31536000000}));
 
-
-
-/* 
-Provides a 404 for times 
-Credit to `fsg` module for this one!
-*/
 app.use(function (req, res, next) {
 
   if (path.extname(req.path).length > 0) {
