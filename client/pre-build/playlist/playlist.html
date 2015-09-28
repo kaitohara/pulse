@@ -1,17 +1,17 @@
-<div class="header col-lg-12">
-	<div class="col-lg-4">
+<div class="header col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 		<p class="pull-left connect-device" ng-click="openModal()">About</p>
 	</div>
-	<div class="col-lg-4">
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 		<div class="title"><img src="/resources/PulseIcon.png" width="80px"></div>
 
 	</div>
-	<div class="col-lg-4">
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 		<p class="pull-right connect-device" ng-click="openModal()">Connect Device +</p>
 	</div>
 </div>
 
-<div class="col-lg-12 main-body">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main-body">
 	<div class="content playlist">
 		<div>
 			<div class="center slider">
@@ -20,7 +20,7 @@
 					<i class="fa fa-times-circle" ng-click="clearSearch()"></i>
 					<i class="fa fa-search" type="submit"></i>
 				</form>
-				<div id="live-search" ng-slide-down="slideDown" lazy-render duration=".8">
+				<div id="live-search" class="live-search" ng-slide-down="slideDown" lazy-render duration=".8">
 					<ul class="search-results">
 						<li class="search-result" ng-repeat="result in results">
 							<div class="album-art" ng-mouseenter="blur($index)" ng-mouseleave="unblur($index)" ng-click="addToPlaylist(result)">
@@ -34,34 +34,38 @@
 							<p>{{result.artists[0].name}}</p>
 						</li>
 					</ul>
+					<div class="clear">
+					</div>
 				</div>
 			</div>
 			<br><br>
-			<div class="col-lg-12">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 non-search">
 			<!-- Spotify Player -->
 			<!-- <iframe src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:5Z7ygHQo02SUrFmcgpwsKW,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameborder="0" allowtransparency="true"></iframe> -->
-				<div class="col-lg-4 player-content">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 player-content">
 					<img id="playingSong" src="/resources/default-artwork.png" width="250">
+					<br>
 					<audio id="player" controls>
 						<source src="{{playlist[0].preview_url | trusted}}" type="audio/mpeg">
 					</audio>
+					<br>
 				</div>
-				<div class="col-lg-8 tracklist">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 tracklist">
 					<div class="sortable-container" sv-root sv-on-sort="onSorted(playlist, $indexFrom, $indexTo)" sv-part="playlist" >
-						<div ng-repeat="song in playlist track by $index" sv-element class="song col-lg-12">
-							<div class="col-lg-1">
+						<div ng-repeat="song in playlist track by $index" sv-element class="song col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 								<i class="fa fa-play" ng-click="playSong(song, $index)" ng-class="{'fa fa-play': $index !== playing , 'fa fa-volume-up':$index === playing}"></i>
 							</div>
-							<div class="col-lg-5">
+							<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 								<p>{{song.name}} </p>
 							</div>
-							<div class="col-lg-4">
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 								<p>{{song.artists[0].name}}</p>
 							</div>
-							<div class="col-lg-1">
+							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 								{{song.duration_ms | date:'m:ss'}} 
 							</div>
-							<div class="col-lg-1">
+							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
 								<i class="fa fa-times" ng-click="removeSong($index)"></i>
 							</div>
 						</div>
@@ -70,7 +74,7 @@
 			</div>
 		</div>
 	</div>
-<div class="footer col-lg-12">
+<div class="footer col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <p class="sub-title"> Powered By </p> <img src="/resources/spotify.png" height="25px">
 </div>
 </div>

@@ -1,0 +1,68 @@
+
+
+@media all and (max-width: 1200px) and (min-width: 992) {
+  .playlist{
+
+  }
+}
+
+@media all and (max-width: 991px) and (min-width: 768px){
+  .playlist{
+    margin:5px 25px 20px 25px;
+  }
+}
+
+//col-sm
+@media all and (max-width: 767px) and (min-width: 480px){
+  .header{
+    .connect-device{
+      margin-right:0px;
+    }
+  }
+  .playlist{
+    .player-content{
+      padding-top:0px;
+    }
+    margin:5px 10px 20px 10px;
+    .tracklist{
+      margin-top: 20px;
+      .song{
+        width:100%;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 479px) and (min-width: 320px){
+  .header{
+    .connect-device{
+      margin-right:0px;
+    }
+  }
+  .playlist{
+    .player-content{
+      padding-top:0px;
+    }
+    margin:5px 10px 20px 10px;
+    .tracklist{
+      margin-top: 20px;
+      .song{
+        width:100%;
+      }
+    }
+  }
+  [class*='col-'] {
+    padding:0px;
+  }
+}
+
+@media all and (max-width: 319px){
+  .header{
+    .connect-device{
+      margin-right:0px;
+    }
+  }
+  .playlist{
+    margin:5px 10px 20px 10px;
+  }
+}

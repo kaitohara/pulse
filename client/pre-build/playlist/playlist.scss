@@ -1,5 +1,9 @@
+.clear{
+  clear:both;
+}
 .main-body{
   height:83vh;
+  padding: 0px;
 }
 .header{
   text-align:center;
@@ -22,8 +26,14 @@
   padding: 0px;
   height:80vh;
   color:$white;
+  .non-search{
+    padding:0px;
+  }
   .center{
     text-align:center;
+    .live-search{
+      // height:auto !important;
+    }
   }
   h1 {
     margin:0px;
@@ -51,27 +61,19 @@
     outline:none;
     border-bottom: 1px solid gray;
   }
-  .song{
-    height:30px;
-    width:50vw;
-    font-weight:200;
-    border-bottom: 1px solid gray;
-    padding: 5px;
-    p{
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-  }
+  
   input{
     background:transparent;
     border:none;
     // border-bottom: 2px solid $white;
   }
   .search-results{
+    float:left;
+    padding:0px;
     font-weight:200;
     text-align: left;
     list-style:none;
+    text-align: center;
     .album-art{
       position: relative;
       width:200px;
@@ -91,24 +93,38 @@
     .hover {
       -webkit-filter: blur(5px) brightness(.5);
     }
-  }
-  .search-result{
-    display:inline;
-    float: left;
-    margin: 10px;
-    width:200px;
-    p{
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .artist-name{
-      padding-top: 10px;
+    .search-result{
+      display:inline-block;
+      float: none;
+      margin: 10px;
+      width:200px;
+      p{
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+      .artist-name{
+        padding-top: 10px;
+      }
     }
   }
   .tracklist{
     height:65vh;
     overflow:scroll;
+    .song{
+      float:none;
+      margin: 0 auto;
+      height:30px;
+      width:50vw;
+      font-weight:200;
+      border-bottom: 1px solid gray;
+      padding: 5px;
+      p{
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+    }
   }
 }
 .footer{
