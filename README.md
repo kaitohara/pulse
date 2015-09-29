@@ -24,5 +24,6 @@ With Pulse you can:
 * MEAN Stack
 * Spotify Web API
 * Socket.io
+* Ash Ryan's <a href="http://meaniscule.ashryanbeats.com/">MEANISCULE</a>
 
 <img src="https://github.com/kaitohara/pulse/blob/master/screenshot2.png" width="300px">
