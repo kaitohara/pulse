@@ -16,6 +16,11 @@ var nsp = io.of('/nsp')
 var rooms = [];
 var roomsObj = {};
 var room;
+
+
+var passport = require('passport')
+var SpotifyStrategy = require('passport-spotify/lib/passport-spotify/index').Strategy;
+
 nsp.on('connection', function (socket){
 
   socket.on('createRoom', function (data){
@@ -126,6 +131,18 @@ app.use('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, './index.html'));
 });
 
+app.use(passport.initialize());
+
+passport.use(new SpotifyStrategy({
+  clientID: 'f0486532e4dc499b943637e59f489b19',
+  clientSecret: 'adb0ec40299f439bade60f32d565c55f',
+  callbackURL: 'http://localhost:4545/auth/spotify/callback'
+},
+function(accessToken, refreshToken, profile, done){
+  console.log('accessToken',accessToken)
+  return done();
+}))
+
 // Errors
 //// Not found
 app.use(function(req, res, next) {
@@ -133,6 +150,18 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+app.get('/auth/spotify', 
+  passport.authenticate('spotify'),
+  function(req,res){
+
+  })
+
+app.get('/auth/spotify/callback',
+  passport.authenticate('spotify', {failureRedirect:'/login'}),
+  function(req,res){
+    res.redirect('/');
+  })
 
 //// Server issues
 app.use(function(err, req, res, next) {

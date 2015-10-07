@@ -5,9 +5,9 @@
 		<img src="/resources/PulseIcon.png" width="140px">
 		<p>Enter the keywords to join.</p>
 		<p ng-show="joinFail" style="color:#FF4060">Didn't recognize the keywords</p>
-		<input type="text" ng-model="keyOne">
+		<input type="text" ng-model="keyOne" autocapitalize="off" autocorrect="off">
 		<br>
-		<input type="text" ng-model="keyTwo">
+		<input type="text" ng-model="keyTwo" autocapitalize="off" autocorrect="off">
 		<br>
 		<button ng-click="joinPlaylist()">Join!</button>
 	<!-- <a ng-click="joinPlaylist()">Join!</a> -->

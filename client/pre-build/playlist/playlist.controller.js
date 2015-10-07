@@ -5,6 +5,8 @@ app.controller('PlaylistController', function($scope, $http, playlistFactory, $w
  	var playlistPreSwap = [];
  	$scope.room;
  	$scope.key;
+
+ 	localStorage.removeItem('key');
  	
  	if (localStorage.getItem(1)){
  		$scope.playlist = JSON.parse(localStorage.getItem(1));
